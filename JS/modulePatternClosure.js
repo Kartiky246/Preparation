@@ -1,7 +1,7 @@
 // ..create a module pattern using closure
 
 
-var module = () => {
+var module = (() => {
     function privateMethod(){
 
     }
@@ -9,6 +9,6 @@ var module = () => {
     return {
         publicsMethod: ()=>console.log('call from public method')
     }
-}
-module().publicsMethod()
-module().privateMethod()
+})()
+module.publicsMethod()
+module.privateMethod()
