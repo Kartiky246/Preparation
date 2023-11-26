@@ -14,3 +14,15 @@ var middleNode = function(head) {
     }
     return map.get((count+1)/2)
 };
+
+// whithout using extra space
+
+var middleNode = function(head) {
+    let pointer1 = head;
+    let pointer2 = head
+    while(pointer2!==null && pointer2.next!==null){
+        pointer2 = pointer2.next.next ;
+        pointer1 = pointer1.next;
+    }
+    return pointer1;
+  };
