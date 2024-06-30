@@ -1,31 +1,40 @@
-// create a polyfill for promise.all
+// promise.all take an array of promises and resloved when all of them resolved and return data in array
+// in same order and if any of the promise failed promise.all reject and give error for first failure
 
-const dummyAsyncTask = (time) =>{
-    return new Promise((resolve,reject)=>{
+
+const asyncTask = (n) =>{
+    return new Promise((resolve)=>{
         setTimeout(()=>{
-            console.log(time)
-            resolve(time)
-        },time)
+        resolve(n)
+        },n*1000);
     })
 }
 
-Promise.all([dummyAsyncTask(2000),dummyAsyncTask(1000),dummyAsyncTask(4000),dummyAsyncTask(6000)]).then((d)=>console.log(d))
+const taskList = [asyncTask(2),asyncTask(39),asyncTask(4),asyncTask(1)];
 
-const myCustomPromise = (tasks) =>{
+Promise.all(taskList).then((data)=>console.log(data))
+
+const myOwnPromiseAll = (arr) =>{
+    let count = 0;
     return new Promise((resolve,reject)=>{
-        const outPutData =[];
-        for(let i =0; i<tasks.length;i++){
-            tasks[i].then((data)=>{
-                outPutData[i]=data;
-                if(i===tasks.length-1){
-                resolve(outPutData);
+    const res = new Array(arr.length).fill(0)
+        for(let i =0; i<arr.length;i++){
+            arr[i].then((data) =>{
+                res[i] = data;
+                count++;
+                if(count===arr.length){
+                    resolve(res);
                 }
-
-            }).catch((err)=>{
-                reject(err)
+            }).catch((e)=>{
+                console.error(e)
+                reject(e);
             })
         }
     })
+
 }
 
-myCustomPromise([dummyAsyncTask(2000),dummyAsyncTask(1000),dummyAsyncTask(4000),dummyAsyncTask(6000)]).then((d)=>console.log(d))
+myOwnPromiseAll(taskList).then((data)=>console.log(data))
+
+
+// in Angular promise.all ===> forkJoin()

@@ -8,4 +8,4 @@ Array.prototype.myOwnReduce = function(fn,initalValue){
     return value
 }
 
-console.log(arr.myOwnReduce((acc,curr)=> acc*curr,0))
+console.log(arr.myOwnReduce((acc,curr)=> acc+curr))
