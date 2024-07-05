@@ -1,19 +1,19 @@
-// Write a function which will take array and chunk amount and return the chunkes of array in an outer array
-// make chunk of remaining values if chunk amount > remaining values
+// Write a function which will take array and chunk size and return the chunkes of array in an outer array
+// If number of elements are less than chunk size then included all the elements in that chunk.
 
-const chunk = (arr,chunkAmount) =>{
-    if(chunkAmount>arr.length) return [arr];
+const chunk = (arr,chunkSize) =>{
+    if(chunkSize>arr.length) return [arr];
     const res =[];
-    for(let i=0;i<arr.length-chunkAmount;i+=chunkAmount){
+    for(let i=0;i<arr.length-chunkSize;i+=chunkSize){
         const chunkData = [];
-        for(let j =0; j<chunkAmount;j++){
+        for(let j =0; j<chunkSize;j++){
             chunkData.push(arr[i+j]);
         }
         res.push(chunkData)
     }
-    if(chunkAmount*res.length<arr.length){
+    if(chunkSize*res.length<arr.length){
         const lastChunk = [];
-        for(let i = chunkAmount*res.length; i<arr.length;i++){
+        for(let i = chunkSize*res.length; i<arr.length;i++){
             lastChunk.push(arr[i]);
         }
         res.push(lastChunk)
