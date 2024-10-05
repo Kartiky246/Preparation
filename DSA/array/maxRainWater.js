@@ -1,4 +1,7 @@
 //find max trapped rainwater between continer
+// https://leetcode.com/problems/container-with-most-water/description/
+//  Two pointer, O(n)
+
 
 var maxArea = function(height) {
     let i =0;

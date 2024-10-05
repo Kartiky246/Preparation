@@ -1,4 +1,5 @@
-// given an array the index represent day and value represnt stock price, tell the max profit that you can make
+// given an array the index represent day and value represent stock price, tell the max profit that you can make
+//https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
 
 
 // TIME- O(n) , space - O(n)

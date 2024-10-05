@@ -1,10 +1,14 @@
 // find the max sum of any possible subarray of an array
-const maxSubArray = function(nums) {
-    let currSum = 0;
-    let maxSum = nums[0]
- for(let i=0;i<nums.length;i++){
-   currSum = Math.max(currSum+nums[i],nums[i])
-   maxSum = Math.max(currSum,maxSum)
- }
- return maxSum
+//https://leetcode.com/problems/maximum-subarray/description/
+
+//Kaden's algorithim - )(n)
+var maxSubArray = function(nums) {
+  let sum = 0;
+  let ans = -Infinity;
+  for(let i =0; i<nums.length;i++){
+      sum+=nums[i];
+      ans = Math.max(ans,sum);
+      if(sum<0) sum = 0;
+  }
+  return ans;
 };
