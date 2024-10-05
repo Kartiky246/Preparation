@@ -1,6 +1,8 @@
 
 //https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/description/
 
+
+// This is constant space solution, we can use map also for simpler solution
 var findDisappearedNumbers = function(nums) {
     for(let i =0; i<nums.length; i++){
         const idx = Math.abs(nums[i]) - 1;
