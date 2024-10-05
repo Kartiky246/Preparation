@@ -1,3 +1,4 @@
+// rotate array by k to right side
 //https://leetcode.com/problems/rotate-array/description/
 
 var rotate = function(nums, k) {
