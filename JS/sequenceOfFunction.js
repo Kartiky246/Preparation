@@ -25,3 +25,6 @@ return "Hello " + str;
 const arr = [upperCase, reverse, append];
     // initial value
 const initialValue = "learnersbucket";
+
+const ans = arr.reduce((acc,curr)=>curr(acc),initialValue);
+console.log(ans);
