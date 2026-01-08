@@ -1,35 +1,21 @@
-import { useState, useContext } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import { Feature } from './shared/components/Feature';
-import { FeatureTypes } from './shared/constants/Features';
+import { Feature } from './shared/components/Feature'
+import { FeatureTypes } from './shared/constants/Features'
+import UseState from './shared/hooks/UseState'
+import {Singleton} from "../DESIGN_PATTERNS/singleton";
+
+
 
 function App() {
-  const [count, setCount] = useState(0)
+   const a = Singleton.instance;
+   debugger;
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-      
+   <div className='app'>
       <Feature featureKey={FeatureTypes.COUNTER_BUTTON}>
-          <button onClick={() => setCount((count) => count + 1)}>
-            count is {count}
-          </button>
+         <button>Click me</button>
       </Feature>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      <UseState></UseState>
+   </div>
   )
 }
 

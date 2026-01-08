@@ -5,9 +5,9 @@ import App from './App.tsx'
 import { FeatureFlagProvider } from './shared/context/FeatureFlagProvider.tsx'
 
 createRoot(document.getElementById('root')!).render(
-  <StrictMode>
+    // <StrictMode>
     <FeatureFlagProvider>
       <App />
     </FeatureFlagProvider>
-  </StrictMode>,
+    // </StrictMode>
 )
