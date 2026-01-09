@@ -1,7 +1,7 @@
 import './App.css'
 import { Feature } from './shared/components/Feature'
 import { FeatureTypes } from './shared/constants/Features'
-import UseState from './shared/hooks/UseState'
+import ListingGrid from "./shared/components/ListingGrid/ListingGrid"
 
 
 
@@ -11,7 +11,7 @@ function App() {
       <Feature featureKey={FeatureTypes.COUNTER_BUTTON}>
          <button>Click me</button>
       </Feature>
-      <UseState></UseState>
+      <ListingGrid></ListingGrid>
    </div>
   )
 }
